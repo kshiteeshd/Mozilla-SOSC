@@ -1,0 +1,211 @@
+import math
+
+import time
+
+def cp():
+    
+    
+
+
+
+
+
+    def prime():
+        number = int(input("Enter the Number"))
+        if number > 1:
+ 
+            for i in range(2, int(number/2)+1):
+ 
+                if (number % i) == 0:
+                    print(number, "is not a prime number")
+                    break
+            else:
+                print(number, "is a prime number")
+ 
+        else:
+            print(number, "is not a prime number")
+
+
+            
+
+    
+
+    def squarenum():
+        number = int(input("Enter the Number"))
+
+
+        root = math.sqrt(number)
+        if int(root + 0.5) ** 2 == number:
+            print(number, "is a perfect square")
+        else:
+            print(number, "is not a perfect square")
+
+    def cubenum():
+        number = int(input("Enter the Number"))
+
+        cube_root= number**(1/3)
+        if round(cube_root) ** 3 == number:
+            print(True, "its a perfect cube root and its cubed root is", round(cube_root))
+        else:
+            print(False, "its not a perfect cube root and its cubed root is", cube_root)
+
+    def factorial():
+        number = int(input("Enter the Number"))
+
+        a=math.factorial(number)
+        print("Factorial of",number,"is",a)
+
+    def palindrome():
+        number = int(input("Enter the Number"))
+
+        temp=number
+        rev=0
+        while(number>0):
+            dig=number%10
+            rev=rev*10+dig
+            number=number//10
+        if(temp==rev):
+            print("The number is palindrome!")
+        else:
+            print("Not a palindrome!")
+
+    def neon_num():
+        number = int(input("Enter the Number"))
+
+        sqr = number*number 
+        sumOfDigit = 0
+
+        #calculating sum of digits of sqr
+        while sqr>0:
+            sumOfDigit =sumOfDigit + sqr%10
+            sqr = sqr//10
+
+        if (number == sumOfDigit):
+            print("Neon Number ")
+        else:
+            print("Not a Neon Number ")
+
+    def fibonacci():
+        number = int(input("Enter the Number"))
+
+
+        n1, n2 = 0, 1
+        count = 0
+
+        if number <= 0:
+           print("Please enter a positive integer")
+        elif number == 1:
+           print("Fibonacci sequence upto",number,":")
+           print(n1)
+        else:
+           print("Fibonacci sequence:")
+           while count < number:
+               print(n1)
+               nth = n1 + n2
+               n1 = n2
+               n2 = nth
+               count += 1
+
+    def armstrong():
+        number = int(input("Enter the Number"))
+        order = len(str(number))
+        sum = 0
+        temp = number
+        while temp > 0:
+           digit = temp % 10
+           sum += digit ** order
+           temp //= 10
+
+        if number == sum:
+           print(number,"is an Armstrong number")
+        else:
+           print(number,"is not an Armstrong number")
+
+    def disarium_num():
+        def calculateLength(n):
+            length = 0;
+            while(n != 0):
+                length = length + 1;
+                n = n//10;
+            return length;
+
+        number = int(input("Enter the Number"))
+        num=number
+        rem = sum = 0;
+        len = calculateLength(num);
+        #Makes a copy of the original number num  
+        n = num;
+        #Calculates the sum of digits powered with their respective position  
+        while(num > 0):
+            rem = num%10;
+            sum = sum + int(rem**len);
+            num = num//10;
+            len = len - 1;
+        #Checks whether the sum is equal to the number itself  
+        if(sum == n):
+            print(str(n) + "is a Disarium number");
+        else:
+            print(str(n) + "is not a Disarium number");
+        
+    def harshad_num():
+        number = int(input("Enter the Number"))
+
+        copy = number
+        digit_sum = 0
+
+        while number:
+            digit_sum += number%10
+            number //= 10
+
+        if copy%digit_sum == 0:
+            print('%d is Harshad Number' % (copy))
+        else:
+            print('%d is Not Harshad Number' % (copy))
+
+
+    print("Welcome")
+    time.sleep(1)
+    print(" Below is the list, fow what you want to do")
+    print('''             1:Check for Prime Number
+             2:Check For Square Number
+             3:Check for Cube Number
+             4:Find the Factorial
+             5:Check for Palindrome
+             6:Check for Neon Number
+             7:Get fibonacci series till that Number
+             8:Check for Armstrong Number
+             9:Check for Disarium Number
+            10:Check for Harshad Number''')
+    choice=int(input("Enter your Choice from the given 'Menu':--:->  "))
+
+    if choice==1:
+        prime()
+    elif choice==2:
+        squarenum()
+    elif choice==3:
+        cubenum()
+    elif choice==4:
+        factorial()
+    elif choice==5:
+        palindrome()
+    elif choice==6:
+        neon_num()
+    elif choice==7:
+        fibonacci()
+    elif choice==8:
+        armstrong()
+    elif choice==9:
+        disarium_num()
+    elif choice==10:
+        harshad_num()
+    else:
+        print("Choose the right option")
+
+
+    print("Do you want to go again?")
+    c=str(input("Enter Y/N"))
+    if c=="Y" or "y":
+        cp()
+    else:
+        print("Bye")
+cp()
